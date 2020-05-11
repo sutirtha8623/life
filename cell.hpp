@@ -16,14 +16,14 @@ namespace life
         Cell();
         ~Cell();
         
-        void set_position(sf::Vector2f pos);
+        void set_position(sf::Vector2f);
         sf::Vector2f get_position();
         
         bool get_living_state();
         void kill();
         void generate();
         
-        void toggle_life();
+        void set_alive_state(bool);
         
 //         void set_fillcolour(sf::Color);
         void render(sf::RenderWindow& window);

@@ -2,7 +2,13 @@
 #define _GAME_H
 
 #include"cell.hpp"
-#include<vector>
+#include"grid.hpp"
+
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 600;
+const int BLOCK_SIZE = 10;
+
+typedef std::vector<std::vector<life::Cell>> cell_grid;
 
 class Game{
 public:
@@ -19,7 +25,7 @@ public:
 private:
     sf::RenderWindow window;
     
-    std::vector<life::Cell> cells;
+    cell_grid cells;
     
 };
 #endif

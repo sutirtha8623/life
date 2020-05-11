@@ -4,11 +4,13 @@ namespace life
 {
     Cell::Cell()
     {
-        position = sf::Vector2f(10.f, 10.f);
+        position = sf::Vector2f(0.f, 0.f);
         block_size = 10;
         is_alive = false;
         cell_shape.setFillColor(sf::Color::Black);
-        cell_shape.setSize(sf::Vector2f(block_size-1, block_size-1));
+        cell_shape.setSize(sf::Vector2f(block_size, block_size));
+        cell_shape.setOutlineThickness(2);
+        cell_shape.setOutlineColor(sf::Color::Black);
     }
     
     Cell::~Cell()
@@ -54,16 +56,9 @@ namespace life
 //     }
 
 
-    void Cell::toggle_life()
+    void Cell::set_alive_state(bool state)
     {
-        if(is_alive == true)
-        {
-            kill();
-        }
-        else
-        {
-            generate();
-        }
+        is_alive = state;
     }
 
 
