@@ -11,12 +11,14 @@ namespace life
 {
     class Grid
     {
+        int rows, columns;
         cell_grid grid;
     public:
         Grid();
+        Grid(int, int);
         ~Grid();
         
-        cell_grid init();
+        void init();
         
         void render(sf::RenderWindow& window, int);
     };

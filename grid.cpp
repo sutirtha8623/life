@@ -15,7 +15,15 @@ namespace life
     {
         Cell cell;
         cell_grid grid;
-        grid.resize(80, std::vector<Cell>(60, cell));
+        grid.resize(80, std::vector<Cell>(60, cell));        
+    }
+    
+    Grid::Grid(int r, int c)
+    {
+        rows = r;
+        columns = c;
+        Cell cell;
+        grid.resize(c, std::vector<Cell>(60, cell));
     }
     
     Grid::~Grid()
@@ -23,24 +31,23 @@ namespace life
         
     }
     
-    cell_grid Grid::init()
+    void Grid::init()
     {
-        for(int i=0; i < 80; ++i)
+        for(int i=0; i < columns; ++i)
         {
-            for(int j=0; j < 60; ++j)
+            for(int j=0; j < rows; ++j)
             {
                 auto random_number =  random_generator(7, 705975497);
                 grid[i][j].set_alive_state(random_number%2);
             }
         }
-        return grid;
     }
     
     void Grid::render(sf::RenderWindow& window, int block_size)
     {
-        for(int i=0; i < 80; ++i)
+        for(int i=0; i < columns; ++i)
         {
-            for(int j=0; j < 60; ++j)
+            for(int j=0; j < rows; ++j)
             {
                 if(grid[i][j].get_living_state() == false)
                 {
