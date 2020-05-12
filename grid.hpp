@@ -1,6 +1,7 @@
 #ifndef _GRID_H
 #define _GRID_H
 
+#include<SFML/Window.hpp>
 #include"cell.hpp"
 #include<vector>
 #include<random>
@@ -13,12 +14,19 @@ namespace life
     {
         int rows, columns;
         cell_grid grid;
+        
     public:
+        
         Grid();
         Grid(int, int);
         ~Grid();
         
         void init();
+        
+        sf::Vector2i toroidal_index(int, int);
+        int get_living_neighbours(Cell);
+        
+        void update();
         
         void render(sf::RenderWindow& window, int);
     };

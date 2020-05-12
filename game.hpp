@@ -4,7 +4,7 @@
 #include"cell.hpp"
 #include"grid.hpp"
 
-const int SCREEN_WIDTH = 800;
+const int SCREEN_WIDTH = 600;
 const int SCREEN_HEIGHT = 600;
 const int BLOCK_SIZE = 10;
 

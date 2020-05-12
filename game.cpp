@@ -2,18 +2,21 @@
 
 
 Game::Game()
-: window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "trial", sf::Style::Default)
-, cells(SCREEN_HEIGHT/BLOCK_SIZE, SCREEN_WIDTH/BLOCK_SIZE)
+: window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "trial", sf::Style::Titlebar | sf::Style::Close)
+, cells(SCREEN_WIDTH/BLOCK_SIZE, SCREEN_HEIGHT/BLOCK_SIZE)
 {
+    cells.init();
+    
+    window.setFramerateLimit(60);
     window.setVerticalSyncEnabled(true);
 }
 
 void Game::run()
 {
-    cells.init();
     while(window.isOpen())
     {
         process_events();
+        update();
         render();
     }
 }
@@ -52,6 +55,7 @@ void Game::process_events()
 
 void Game::update()
 {
+
 }
 
 void Game::render()

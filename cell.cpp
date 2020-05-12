@@ -4,9 +4,10 @@ namespace life
 {
     Cell::Cell()
     {
-        position = sf::Vector2f(0.f, 0.f);
+        position = sf::Vector2f(0, 0);
         block_size = 10;
         is_alive = false;
+        
         cell_shape.setFillColor(sf::Color::Black);
         cell_shape.setSize(sf::Vector2f(block_size, block_size));
         cell_shape.setOutlineThickness(2);
@@ -16,13 +17,29 @@ namespace life
     Cell::~Cell()
     {
     }
-
+    
+    //positon and grid_position handling
+    void Cell::set_position(sf::Vector2f pos)
+    {
+         cell_shape.setPosition(pos);
+    }
     
     sf::Vector2f Cell::get_position()
     {
         return position;
     }
     
+    sf::Vector2i Cell::get_grid_position()
+    {
+        return grid_position;
+    }
+    
+    void Cell::set_grid_position(int x, int y)
+    {
+        grid_position = sf::Vector2i(x, y);
+    }
+    
+    //killing and generating
     bool Cell::get_living_state()
     {
         return is_alive;
@@ -40,26 +57,19 @@ namespace life
         cell_shape.setFillColor(sf::Color::White);
     }
     
-    void Cell::set_position(sf::Vector2f pos)
+    void Cell::set_alive_state(bool state)
     {
-        cell_shape.setPosition(pos);
-    }
+        is_alive = state;
+    }        
     
+    //rendering
     void Cell::render(sf::RenderWindow& window)
     {
         window.draw(cell_shape);
     }
     
-//     void Cell::set_fillcolour(sf::Color color)
-//     {
-//         cell_shape.setFillColor(color);
-//     }
 
 
-    void Cell::set_alive_state(bool state)
-    {
-        is_alive = state;
-    }
 
 
 }
