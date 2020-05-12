@@ -107,7 +107,7 @@ namespace life
                 {
                     grid_copy[i][j].generate();
                 }
-                else
+                else if(grid[i][j].get_living_state() == true && (get_living_neighbours(grid[i][j]) == 2 || get_living_neighbours(grid[i][j]) == 3))
                 {
                     grid_copy[i][j].generate();
                 }
