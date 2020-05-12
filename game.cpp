@@ -5,9 +5,9 @@ Game::Game()
 : window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "trial", sf::Style::Titlebar | sf::Style::Close)
 , cells(SCREEN_WIDTH/BLOCK_SIZE, SCREEN_HEIGHT/BLOCK_SIZE)
 {
+    clock.restart();
     cells.init();
     
-    window.setFramerateLimit(60);
     window.setVerticalSyncEnabled(true);
 }
 
@@ -55,7 +55,12 @@ void Game::process_events()
 
 void Game::update()
 {
-
+    float timestep = 300;
+    if(clock.getElapsedTime().asMilliseconds() >= timestep)
+    {
+        cells.update();
+        clock.restart();
+    }
 }
 
 void Game::render()

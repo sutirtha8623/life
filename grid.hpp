@@ -14,6 +14,7 @@ namespace life
     {
         int rows, columns;
         cell_grid grid;
+        cell_grid grid_copy;
         
     public:
         

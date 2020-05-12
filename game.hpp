@@ -23,6 +23,7 @@ public:
     
 private:
     sf::RenderWindow window;
+    sf::Clock clock;
     
     life::Grid cells;
     
