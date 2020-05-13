@@ -32,7 +32,7 @@ namespace life
         {
             for(int j=0; j < columns; ++j)
             {
-                std::uniform_int_distribution<int> distribution(0, 458954);
+                std::uniform_int_distribution<int> distribution(0, 1);
                 grid[i][j].set_alive_state((distribution(generator))%2);
                 grid[i][j].set_grid_position(i, j);
             }
@@ -107,9 +107,14 @@ namespace life
                 {
                     grid_copy[i][j].generate();
                 }
-                else if(grid[i][j].get_living_state() == true && (get_living_neighbours(grid[i][j]) == 2 || get_living_neighbours(grid[i][j]) == 3))
+                else if(grid[i][j].get_living_state() == true && 
+                    (get_living_neighbours(grid[i][j]) == 2 || get_living_neighbours(grid[i][j]) == 3))
                 {
                     grid_copy[i][j].generate();
+                }
+                else
+                {
+                    grid_copy[i][j] = grid[i][j];
                 }
             }
         }
