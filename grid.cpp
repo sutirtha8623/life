@@ -32,7 +32,7 @@ namespace life
         {
             for(int j=0; j < columns; ++j)
             {
-                std::uniform_int_distribution<int> distribution(0, 1);
+                std::uniform_int_distribution<int> distribution(0, 2); //more dead cells in init pos produces more interesting patterns
                 grid[i][j].set_alive_state(distribution(generator)%2);
                 grid[i][j].set_grid_position(i, j);
             }
@@ -76,14 +76,14 @@ namespace life
         auto toroidal_br_index = toroidal_index(cell.get_grid_position().x+1, cell.get_grid_position().y+1);
         Cell br = grid [toroidal_br_index.x] [toroidal_br_index.y];
         
-        if(top.get_living_state() == true) ++neighbours;
-        if(bottom.get_living_state() == true) ++neighbours;
-        if(left.get_living_state() == true) ++neighbours;
-        if(right.get_living_state() == true) ++neighbours;
-        if(tl.get_living_state() == true) ++neighbours;
-        if(tr.get_living_state() == true) ++neighbours;
-        if(bl.get_living_state() == true) ++neighbours;
-        if(br.get_living_state() == true) ++neighbours;
+        if(top.get_living_state()) ++neighbours;
+        if(bottom.get_living_state()) ++neighbours;
+        if(left.get_living_state()) ++neighbours;
+        if(right.get_living_state()) ++neighbours;
+        if(tl.get_living_state()) ++neighbours;
+        if(tr.get_living_state()) ++neighbours;
+        if(bl.get_living_state()) ++neighbours;
+        if(br.get_living_state()) ++neighbours;
         
         return neighbours;
     }
