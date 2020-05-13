@@ -33,7 +33,7 @@ namespace life
             for(int j=0; j < columns; ++j)
             {
                 std::uniform_int_distribution<int> distribution(0, 1);
-                grid[i][j].set_alive_state(distribution(generator));
+                grid[i][j].set_alive_state(distribution(generator)%2);
                 grid[i][j].set_grid_position(i, j);
             }
         }

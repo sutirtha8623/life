@@ -4,9 +4,9 @@
 #include"cell.hpp"
 #include"grid.hpp"
 
-const int SCREEN_WIDTH = 600;
-const int SCREEN_HEIGHT = 600;
-const int BLOCK_SIZE = 10;
+const int SCREEN_WIDTH = 1370;
+const int SCREEN_HEIGHT = 700;
+const int BLOCK_SIZE = 5;
 
 
 class Game{
