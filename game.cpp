@@ -2,7 +2,7 @@
 
 
 Game::Game()
-: window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "trial", /*sf::Style::Titlebar | sf::Style::Close*/ sf::Style::Default)
+: window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "life", /*sf::Style::Titlebar | sf::Style::Close*/ sf::Style::Default)
 , cells(SCREEN_WIDTH/BLOCK_SIZE, SCREEN_HEIGHT/BLOCK_SIZE)
 {
     clock.restart();
